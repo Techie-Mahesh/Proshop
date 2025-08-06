@@ -1,12 +1,16 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
+import logo from "../assets/styles/logo.png";
 
 const Header = () => {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
-        <Container>
-          <Navbar.Brand href="/">ProShop</Navbar.Brand>
+        <Container className="my-3 p-3 rounded">
+          <Navbar.Brand href="/">
+            <img src={logo} alt="Proshop" />
+            ProShop
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse>
             <Nav className="ms-auto">
@@ -20,7 +24,6 @@ const Header = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-        Hello
       </Navbar>
     </header>
   );
