@@ -1,7 +1,13 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router";
+import Ratings from "./Ratings";
+import type { IProduct } from "./types";
 
-const Product = ({ product }: any) => {
+interface ProductProps {
+  product: IProduct;
+}
+const Product: React.FC<ProductProps> = (props) => {
+  const { product } = props;
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
@@ -14,6 +20,12 @@ const Product = ({ product }: any) => {
             <strong>{product.name}</strong>
           </Card.Title>
         </Link>
+        <Card.Text>
+          <Ratings
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
+        </Card.Text>
 
         <Card.Text as="h3">${product.price}</Card.Text>
       </Card.Body>
